@@ -1,0 +1,10 @@
+<div class="todo-wrapper" ng-controller="TodoItemsController">
+    <h2>You've got <span class="emphasis">{{getNeedTodoItemsTotal()}}</span> things to do</h2>
+    <ul>
+        <li ng-repeat="todo in todoItems">
+            <span>{{todo.description}}</span>
+        </li>
+    </ul>
+
+    <button ng-click="newTodoItem">New Todo</button>
+</div>

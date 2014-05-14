@@ -1,0 +1,10 @@
+[
+    {
+        "context": "/application",
+        "include": "mount.json"
+    },
+    {
+        "context": "/framework",
+        "include": "response.json"
+    }
+]

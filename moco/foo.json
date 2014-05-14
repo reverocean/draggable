@@ -1,0 +1,18 @@
+[
+    {
+        "request" : {
+            "uri" : "/foo"
+        },
+        "response" : {
+            "text" : "foo"
+        }
+    },
+    {
+        "request" : {
+            "uri" : "/image"
+        },
+        "response" : {
+            "file" : "a.png"
+        }
+    }
+]

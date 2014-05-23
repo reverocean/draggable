@@ -50,4 +50,25 @@ describe('controllers', function () {
             expect(location.url).toEqual('/new');
         });
     });
+
+    describe('MyCtrl2', function(){
+        var scope;
+
+        beforeEach(inject(function (_$rootScope_, $controller) {
+            scope = _$rootScope_.$new();
+            var service = {
+                get: function(){
+                    return {};
+                }
+            }
+            $controller('MyCtrl2', {
+                $scope : scope,
+                TestService: service
+            })
+        }));
+
+        it('a', function(){
+
+        })
+    })
 });

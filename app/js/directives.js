@@ -20,7 +20,7 @@ angular.module('myApp.directives', []).
     directive('pagination', function(){
         return {
             restrict: 'E',
-            templateUrl: '/partials/pagination.html',
+//            templateUrl: '/partials/pagination.html',
             compile: function(element, attributes){
                 element.addClass('btn');
             }

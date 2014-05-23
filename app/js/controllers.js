@@ -3,16 +3,16 @@
 /* Controllers */
 
 angular.module('myApp.controllers', ['myApp.services'])
-  .controller('TodoItemsController', ['$scope', 'TodoItemService', '_', '$location', '$timeout',  function($scope, TodoItemService, _, $location, $timeout) {
+    .controller('TodoItemsController', ['$scope', 'TodoItemService', '_', '$location', '$timeout', function ($scope, TodoItemService, _, $location, $timeout) {
         var allTodoItems = TodoItemService.getAllTodoItems();
         $scope.todoItems = allTodoItems;
-        $scope.getNeedTodoItemsTotal = function(){
-            return _.filter(allTodoItems, function(item){
+        $scope.getNeedTodoItemsTotal = function () {
+            return _.filter(allTodoItems, function (item) {
                 return item.status == 'NEW';
             }).length;
         };
 
-        $scope.newTodoItem = function(){
+        $scope.newTodoItem = function () {
 
             $location.url = '/new';
         }
@@ -23,7 +23,9 @@ angular.module('myApp.controllers', ['myApp.services'])
 
         }, 2000);
 
-  }])
-  .controller('MyCtrl2', ['$scope', function($scope) {
-
-  }]);
+    }])
+    .controller('MyCtrl2', ['$scope', 'TestService', function ($scope, TestService) {
+        TestService.get().success(function (data) {
+            $scope.data = data;
+        });
+    }]);

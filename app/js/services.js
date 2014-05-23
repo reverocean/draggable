@@ -47,5 +47,11 @@ angular.module('myApp.services', ['ngResource'])
             }
         }
     }])
-    .
-    value('version', '0.1');
+    .service("TestService", ["$http", function($http){
+        return {
+            get : function(){
+                return $http.get("/test");
+            }
+        }
+    }])
+    .value('version', '0.1');

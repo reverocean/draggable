@@ -18,6 +18,7 @@
 
         "prestart": "npm install",
         "start": "http-server -a localhost -p 8000",
+        "moco": "./moco.sh",
 
         "pretest": "npm install",
         "test": "karma start test/karma.conf.js",

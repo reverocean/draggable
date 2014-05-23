@@ -23,7 +23,7 @@ angular.module('myApp.services', ['ngResource'])
     .factory('TodoItem', ['$resource', function ($resource) {
         return $resource("/todoItems/:id", {id: '@id'});
     }])
-    .factory("TodoItemsQuery", ['TodoItem', '$q', function (TodoItem, $q) {
+    .factory("TodoItemsQuery", ['TodoItem', '$http','$q', function (TodoItem, $http, $q) {
         var delay = $q.defer();
         TodoItem.query(function (todoItems) {
             delay.resolve(todoItems);
@@ -31,6 +31,8 @@ angular.module('myApp.services', ['ngResource'])
             delay.reject('Unable reach server error');
         });
         return delay.promise;
+//        return function(){
+//            return $http.get("/todoItems");};
     }])
     .factory("TodoItemQuery", ['TodoItem', '$q', function (TodoItem, $q) {
         return {

@@ -16,4 +16,11 @@ angular.module('myApp.services', []).
             }
         }
     }).
-  value('version', '0.1');
+    service('ProjectService', ['$http', function($http){
+        return {
+            getProjects : function(){
+                return $http.get('/application/projects');
+            }
+        }
+    }])
+    .value('version', '0.1');

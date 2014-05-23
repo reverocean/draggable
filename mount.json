@@ -5,5 +5,13 @@
             "dir" : "app",
             "uri" : "/app"
         }
+    },
+    {
+        "request": {
+            "uri": "/projects"
+        },
+        "response": {
+            "file": "moco/projects.json"
+        }
     }
 ]

@@ -27,8 +27,23 @@ describe('service', function () {
             expect(allTodoItems[0].description).toEqual('haha1');
             expect(allTodoItems[1].description).toEqual('haha2');
         });
-
-
     });
 
+    describe('ProjectService', function () {
+        var service, $httpBackend;
+
+        beforeEach(inject(function (_$httpBackend_, ProjectService) {
+            service = ProjectService;
+            $httpBackend = _$httpBackend_;
+        }));
+
+        it('should return all projects', function () {
+            $httpBackend.expectGET('/application/projects').respond([1, 2]);
+            service.getProjects().then(function(reponse) {
+                expect(reponse.data).toEqual([1, 2]);
+            })
+            $httpBackend.flush();
+
+        });
+    });
 });

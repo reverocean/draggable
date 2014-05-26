@@ -20,7 +20,11 @@ angular.module('myApp.directives', []).
     directive('pagination', function(){
         return {
             restrict: 'E',
-//            templateUrl: '/partials/pagination.html',
+            template: '<div class="pagination"><ul>' +
+                '<li ng-repeat="page in pages">' +
+                '<a>{{page}}</a>' +
+                '</li>' +
+                '</ul></div>',
             compile: function(element, attributes){
                 element.addClass('btn');
             }

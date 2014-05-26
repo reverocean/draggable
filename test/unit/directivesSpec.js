@@ -49,7 +49,7 @@ describe('directives', function () {
 
         it('has the number of the page as text in each page item', function () {
             for (var i = 0;i < $scope.numPage; i++) {
-//                expect(lis.eq(i).text()).toEqual('' + i);
+                expect(lis.eq(i).text()).toEqual('' + i);
             }
         });
     });

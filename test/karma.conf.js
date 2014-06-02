@@ -24,12 +24,19 @@ module.exports = function (config) {
             'karma-phantomjs-launcher',
             'karma-firefox-launcher',
             'karma-jasmine',
-            'karma-junit-reporter'
+            'karma-junit-reporter',
+            "karma-html-reporter"
         ],
 
         junitReporter: {
             outputFile: 'test_out/unit.xml',
             suite: 'unit'
+        },
+
+        reporters: ['progress', 'html', 'unit'],
+        htmlReporter: {
+            outputDir: 'karma_html',
+            templatePath: __dirname+'/jasmine_template.html'
         }
 
     });

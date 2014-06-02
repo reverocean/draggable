@@ -39,7 +39,7 @@ describe('directives', function () {
             $scope.numPage = 5;
             $scope.currentPage = 2;
 
-            element = $compile('<pagination num-pages="numPage" current-page="currentPage"></pagination>')
+            element = $compile('<pagination num-pages="numPages" current-page="currentPage"></pagination>')
             $scope.$digest();
             lis = function () {
                 return element.find('li');

@@ -22,6 +22,9 @@ angular.module('myApp.controllers', ['myApp.services'])
             return 'haha';
 
         }, 2000);
+//
+//        $scope.numPages = 5;
+//        $scope.currentPage = 1;
 
     }])
     .controller('MyCtrl2', ['$scope', 'TestService', function ($scope, TestService) {

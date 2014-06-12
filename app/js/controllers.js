@@ -13,5 +13,25 @@ angular.module('myApp.controllers', [])
         $scope.name = 'World';
     }])
     .controller('MyCtrl2', ['$scope', function ($scope) {
+        $scope.pageObject = {
+            totalPage: 5,
+            currentPage: 0,
+            elements: []
+        };
 
+        $scope.isNotFirstPage = function(){
+            return $scope.pageObject.currentPage != 0;
+        }
+
+        $scope.isNotLastPage = function(){
+            return $scope.pageObject.currentPage != $scope.totalPage - 1;
+        }
+
+        $scope.nextPage = function(){
+
+        }
+
+        $scope.previousPage = function(){
+
+        }
     }]);

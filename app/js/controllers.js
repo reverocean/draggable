@@ -7,9 +7,9 @@ angular.module('myApp.controllers', [])
         $scope.todoItems = TodoItemService.getAllTodoItems();
     }])
     .controller('MyCtrl1', ['$scope','ProjectService', function ($scope, ProjectService) {
-//        ProjectService.getProjects().then(function (response) {
-//            $scope.projects = response.data;
-//        });
+        ProjectService.getProjects().then(function (response) {
+            $scope.projects = response.data;
+        });
         $scope.name = 'World';
     }])
     .controller('MyCtrl2', ['$scope', function ($scope) {

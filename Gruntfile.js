@@ -20,6 +20,22 @@ module.exports = function (grunt) {
                 dest: 'dist/templates.js',
                 module: 'templates'
             }
+        },
+        protractor: {
+            options: {
+//                configFile: "", // Default config file
+                keepAlive: true, // If false, the grunt process stops when the test fails.
+                noColor: false, // If true, protractor will not use colors in its output.
+                args: {
+                    // Arguments passed to the command
+                }
+            },
+            your_target: {
+                options: {
+                    configFile: "test/protractor-conf.js", // Target-specific config file
+                    args: {} // Target-specific arguments
+                }
+            }
         }
 
 //    concat: {
@@ -89,6 +105,7 @@ module.exports = function (grunt) {
 //  grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-html2js');
 
+    grunt.loadNpmTasks('grunt-protractor-runner');
 
     // Default task.
     grunt.registerTask('default', ['html2js']);

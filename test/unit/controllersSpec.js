@@ -3,7 +3,7 @@
 /* jasmine specs for controllers go here */
 
 describe('controllers', function () {
-    beforeEach(module('myApp.controllers'));
+    beforeEach(module('myApp'));
 
     describe('TodoItemsController', function () {
         var scope, mockService;
@@ -37,19 +37,16 @@ describe('controllers', function () {
     describe('MyCtrl1', function () {
         var scope;
         var deferred;
+        var service;
 
-        beforeEach(inject(function ($rootScope, $controller, $q) {
+        beforeEach(inject(function ($rootScope, $controller, $q, ProjectService) {
             scope = $rootScope.$new();
-            var service = {
-
-                getProjects: function () {
-                    deferred = $q.defer();
-                    return deferred.promise;
-                }
-            };
+            deferred = $q.defer();
+            service = ProjectService;
+            spyOn(ProjectService, "getProjects").andCallFake(function(){return deferred.promise;});
             $controller('MyCtrl1', {
                 $scope: scope,
-                ProjectService: service
+                ProjectService: ProjectService
             })
         }));
 
@@ -59,6 +56,7 @@ describe('controllers', function () {
             });
             scope.$digest();
             expect(scope.projects.length).toEqual(2);
+            expect(service.getProjects).toHaveBeenCalled();
         });
     })
 });

@@ -32,5 +32,22 @@ angular.module('myApp.directives', []).
 
 
         };
-    }])
+    }]).
+    directive('draggable', function(){
+        return {
+            restrict: 'A',
+            link: function(scope, element, attrs){
+
+                $( "#sortable" ).sortable({
+                    revert: true
+                });
+
+                $("#draggable > li").draggable({
+                    connectToSortable: "#sortable",
+                    helper: "clone",
+                    revert: "invalid"
+                });
+            }
+        }
+    })
 ;

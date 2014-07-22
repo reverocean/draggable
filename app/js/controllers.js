@@ -7,10 +7,28 @@ angular.module('myApp.controllers', [])
         $scope.todoItems = TodoItemService.getAllTodoItems();
     }])
     .controller('MyCtrl1', ['$scope','ProjectService', function ($scope, ProjectService) {
-        ProjectService.getProjects().then(function (response) {
-            $scope.projects = response.data;
-        });
-        $scope.name = 'World';
+//        ProjectService.getProjects().then(function (response) {
+//            $scope.projects = response.data;
+//        });
+//        $scope.name = 'World';
+        $scope.treedata =
+            [
+                { "label" : "User", "id" : "role1", "children" : [
+                    { "label" : "subUser1", "id" : "role11", "children" : [] },
+                    { "label" : "subUser2", "id" : "role12", "children" : [
+
+                    ]}
+                ]},
+                { "label" : "Admin", "id" : "role2", "children" : [
+                    { "label" : "subUser2-1", "id" : "role121", "children" : [
+
+                    ]}
+                ] },
+                { "label" : "Guest", "id" : "role3", "children" : [
+                    { "label" : "subUser2-1-1", "id" : "role1211", "children" : [] },
+                    { "label" : "subUser2-1-2", "id" : "role1212", "children" : [] }
+                ] }
+            ];
     }])
     .controller('MyCtrl2', ['$scope', function ($scope) {
         $scope.pageObject = {
